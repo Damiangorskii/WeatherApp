@@ -1,0 +1,62 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+
+  <title>WeatherApp</title>
+  <meta name="description" content="The HTML5 Herald">
+  <meta name="author" content="SitePoint">
+
+  <link rel="stylesheet" href="css/styles.css?v=1.0">
+
+
+  <style>
+
+    * {
+        margin: 0;
+        box-sizing: border-box;
+    }
+
+    #container {
+        text-align: center;
+        padding-top: 100px;
+    }
+
+    input[type='text']{
+        width: 30%;
+        padding: 10px;
+        border: 2px solid black;
+        font-size: 20px;
+        margin-bottom: 20px;
+    }
+
+    input[type='submit']{
+        width: 10%;
+        padding: 10px;
+        border: 2px solid black;
+        font-size: 20px;
+        color: white;
+        background: black;
+    }
+
+  </style>
+
+
+
+
+</head>
+
+<body>
+
+<div id="container">
+  <h1>Find the weather</h1>
+  <form method="GET">
+    <label for="city"></label>
+    <input type="text" name="city" id="city" placeholder="City...">
+    </br>
+    <input type="submit" value="Submit" />
+  </form>
+</div>
+</body>
+</html>

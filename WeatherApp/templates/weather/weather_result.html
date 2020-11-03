@@ -1,0 +1,46 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+
+  <title>WeatherApp</title>
+  <meta name="description" content="The HTML5 Herald">
+  <meta name="author" content="SitePoint">
+
+  <link rel="stylesheet" href="css/styles.css?v=1.0">
+
+
+  <style>
+
+    * {
+        margin: 0;
+        box-sizing: border-box;
+    }
+
+    #container {
+        text-align: center;
+        padding-top: 100px;
+    }
+
+  </style>
+
+
+
+
+</head>
+
+<body>
+
+<div id="container">
+    <div id="result">
+        <figure class="image">
+            <img src="http://openweathermap.org/img/w/{{weather_data.icon}}.png" alt="Image">
+        </figure>
+        <p>{{weather_data.city}}</p><br>
+        <p>{{weather_data.temperature}} °C</p><br>
+        <p>{{weather_data.description}}</p><br>
+    </div>
+</div>
+</body>
+</html>
