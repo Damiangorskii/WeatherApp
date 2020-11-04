@@ -1,13 +1,16 @@
 from django.shortcuts import render
+from django.template import loader
 from django.http import HttpResponse
 
 import requests
+import datetime
 
 # Create your views here.
 
 def home(request):
 
-    query = request.GET.get('city')
+    query = request.GET.get('q')
+    
 
     if query:
 
@@ -20,14 +23,18 @@ def home(request):
 
         weather_data = {
             'city': city,
+            'country': r['sys']['country'],
             'temperature': round((int(r['main']['temp'])-273.15),1),
-            'description': r['weather'][0]['description'],
+            'temperatureFeelsLike': round((int(r['main']['feels_like'])-273.15),1),
+            'mainDescription': r['weather'][0]['main'],
             'icon': r['weather'][0]['icon'],
+            'datetime': datetime.datetime.now(),
         }
 
         context = {
             'weather_data': weather_data,
         }
 
-        return render(request, 'weather/weather_result.html', context)
+
+        return render(request, 'weather/city_weather.html', context)
     return render(request, 'home.html', {})

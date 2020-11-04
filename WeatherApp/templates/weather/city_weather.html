@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block content %}
+
+              <div class="row">
+                <div class="col s12 m6">
+                  <div class="card light-blue lighten-1">
+                    <div class="card-content white-text center">
+                      <span style="text-transform: uppercase" class="card-title">current weather for &nbsp&nbsp<b>{{weather_data.city}}</b></span>
+                        <p>{{weather_data.datetime}} &nbsp&nbsp&nbsp <b>{{weather_data.city}}, {{weather_data.country}}</b></p>
+                        <p></p>
+                        <br><br><br>
+  
+                        <figure class="image">
+                          <img src="http://openweathermap.org/img/w/{{weather_data.icon}}.png" alt="Image">
+                        </figure> 
+                        <p class="main-data"><b>{{weather_data.temperature}}&nbsp °C</b></p>
+                        
+                        <p class="main-data"><b>Feels like: {{weather_data.temperatureFeelsLike}}&nbsp °C</b></p>
+
+                        <br>
+  
+                        
+                        <p class="main-data">{{weather_data.mainDescription}}</p>
+                    </div>
+                    <div class="card-action">
+                      <a href="#">More details</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+{% endblock content %}
