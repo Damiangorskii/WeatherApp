@@ -9,43 +9,43 @@
                 <div class="col s12 m6">
                   <div class="card light-blue lighten-1">
                     <div class="card-content white-text">
-                      <span class="card-title">DETAIL WEATHER FOR LONDON</span>
-                        <p>16:44, Nov 4 &nbsp&nbsp&nbsp <b>London, GB</b></p>
+                      <span class="card-title">DETAIL WEATHER FOR <b>{{weather_data.city}}</b></span>
+                        <p>16:44, Nov 4 &nbsp&nbsp&nbsp <b>{{weather_data.name}}, {{weather_data.country}}</b></p>
                         <p></p>
                         <div class="divider"></div>
   
-                        <p>img &nbsp<b>8*C</b></p>
-                        <p><b>Feels like: 8*C</b></p>
+                        <figure class="image">
+                          <img src="http://openweathermap.org/img/w/{{weather_data.icon}}.png" alt="Image">
+                        </figure> 
+                        <p class="main-data"><b>{{weather_data.temperature}}&nbsp °C</b></p>
+                        <p><b>Feels like: {{weather_data.temperatureFeelsLike}}&nbsp°C</b></p>
 
                         <div class="divider"></div>
   
                         
-                        <p><b>MainOpis</b>, opis</p>
-                        <p>Pressure:<b>1036 hPa</b></p>
-                        <p>Humidity:<b>80 %</b></p>
+                        <p><b>{{weather_data.mainDescription}}</b>, {{weather_data.description}}</p>
+                        <p>Pressure:<b>{{weather_data.pressure}} hPa</b></p>
+                        <p>Humidity:<b>{{weather_data.humidity}} %</b></p>
 
                         <div class="divider"></div>
 
 
-                        <p>Temperature min:<b>3 *C</b></p>
-                        <p>Temperature max:<b>66 *C</b></p>
+                        <p>Temperature min:<b>{{weather_data.tempMin}}&nbsp°C</b></p>
+                        <p>Temperature max:<b>{{weather_data.tempMax}}&nbsp°C</b></p>
 
                         <div class="divider"></div>
 
 
-                        <p>WindIcon:<b>33 m/s</b></p>
-                        <p>Cloudiness:<b>33 %</b></p>
+                        <p>WindIcon:<b>{{weather_data.wind}} m/s</b></p>
+                        <p>Cloudiness:<b>{{weather_data.cloudiness}} %</b></p>
 
                         <div class="divider"></div>
 
                         
-                        <p>Sunrise:<b>2:00 am</b></p>
-                        <p>Sunset:<b>6:00 pm</b></p>
-                        <p>Timezone:<b>0</b></p>
+                        <p>Sunrise:<b>{{weather_data.sunrise}} am</b></p>
+                        <p>Sunset:<b>{{weather_data.sunset}} pm</b></p>
+                        <p>Timezone:<b>{{weather_data.timezone}}</b></p>
 
-                    </div>
-                    <div class="card-action">
-                      <a href="#">More details</a>
                     </div>
                   </div>
                 </div>

@@ -26,7 +26,7 @@
                         <p class="main-data">{{weather_data.mainDescription}}</p>
                     </div>
                     <div class="card-action">
-                      <a href="#">More details</a>
+                      <a href="{% url 'detail-city-weather' weather_data.city%}">More details</a>
                     </div>
                   </div>
                 </div>
