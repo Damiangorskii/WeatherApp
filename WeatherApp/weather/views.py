@@ -1,9 +1,11 @@
 from django.shortcuts import render
 from django.template import loader
 from django.http import HttpResponse
+from suntime import Sun, SunTimeException
 
 import requests
 import datetime
+import time
 
 # Create your views here.
 
@@ -44,10 +46,35 @@ def detail_city_weather_view(request, city):
 
     url = 'http://api.openweathermap.org/data/2.5/weather?q='+city+'&APPID=d15a8e835c366afc687227da39ceb337'
     r = requests.get(url.format(city)).json()
+
+    sunrise = ""
+    sunset = ""
+
+    latitude = r['coord']['lat']
+    longitude = r['coord']['lon']
+
+
+    sun = Sun(latitude, longitude)
+
+    dt = datetime.datetime.today()
+
+    #to fix: local time sunrise and sunset, error with KeyError or favicon.ico
+    #https://github.com/SatAgro/suntime
+
+
+
+    try:
+        sunrise = sun.get_local_sunrise_time(dt)
+        sunset = sun.get_local_sunset_time()
+    except SunTimeException as e:
+        print("Error: {0}.".format(e))
+
+
+
         
 
     weather_data = {
-        'city': r['name'],
+        'city': city,
         'country': r['sys']['country'],
         'temperature': round((int(r['main']['temp'])-273.15),1),
         'temperatureFeelsLike': round((int(r['main']['feels_like'])-273.15),1),
@@ -57,18 +84,18 @@ def detail_city_weather_view(request, city):
         'pressure': r['main']['pressure'],
         'description': r['weather'][0]['description'],
         'humidity': r['main']['humidity'],
-        'visibility': r['visibility'],
-        'tempMin': r['main']['temp_min'],
-        'tempMax': r['main']['temp_max'],
+        'visibility': round((int(r['visibility'])/1000),1),
+        'tempMin': round((int(r['main']['temp_min'])-273.15), 1),
+        'tempMax': round((int(r['main']['temp_max'])-273.15),1),
         'wind': r['wind']['speed'],
         'cloudiness': r['clouds']['all'],
-        'sunrise': r['sys']['sunrise'],
-        'sunset': r['sys']['sunset'],
-        'timezone': r['timezone'],
+        'sunrise': sunrise,
+        'sunset': sunset,
+        'timezone': (int(r['timezone'])/3600),
         }
         
     context = {
-            'weather_data': weather_data,
+        'weather_data': weather_data,
     }
 
 

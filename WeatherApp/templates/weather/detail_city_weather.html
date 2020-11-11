@@ -10,7 +10,7 @@
                   <div class="card light-blue lighten-1">
                     <div class="card-content white-text">
                       <span class="card-title">DETAIL WEATHER FOR <b>{{weather_data.city}}</b></span>
-                        <p>16:44, Nov 4 &nbsp&nbsp&nbsp <b>{{weather_data.name}}, {{weather_data.country}}</b></p>
+                        <p>16:44, Nov 4 &nbsp&nbsp&nbsp <b>{{weather_data.city}}, {{weather_data.country}}</b></p>
                         <p></p>
                         <div class="divider"></div>
   
@@ -19,32 +19,33 @@
                         </figure> 
                         <p class="main-data"><b>{{weather_data.temperature}}&nbsp °C</b></p>
                         <p><b>Feels like: {{weather_data.temperatureFeelsLike}}&nbsp°C</b></p>
+                        <p><b>{{weather_data.mainDescription}}</b>, {{weather_data.description}}</p>
 
                         <div class="divider"></div>
   
                         
-                        <p><b>{{weather_data.mainDescription}}</b>, {{weather_data.description}}</p>
-                        <p>Pressure:<b>{{weather_data.pressure}} hPa</b></p>
-                        <p>Humidity:<b>{{weather_data.humidity}} %</b></p>
+                        <p><i class="material-icons tiny">av_timer</i>&nbsp&nbsp<b>{{weather_data.pressure}} hPa</b></p>
+                        <p><i class="material-icons tiny">opacity</i>&nbsp&nbsp<b>{{weather_data.humidity}} %</b></p>
 
                         <div class="divider"></div>
 
 
-                        <p>Temperature min:<b>{{weather_data.tempMin}}&nbsp°C</b></p>
-                        <p>Temperature max:<b>{{weather_data.tempMax}}&nbsp°C</b></p>
+                        <p>Temperature min (now):&nbsp&nbsp<b>{{weather_data.tempMin}}&nbsp°C</b></p>
+                        <p>Temperature max (now):&nbsp&nbsp<b>{{weather_data.tempMax}}&nbsp°C</b></p>
 
                         <div class="divider"></div>
 
 
-                        <p>WindIcon:<b>{{weather_data.wind}} m/s</b></p>
-                        <p>Cloudiness:<b>{{weather_data.cloudiness}} %</b></p>
+                        <p><i class="material-icons tiny">send</i>&nbsp&nbsp<b style="font-size: 18;">{{weather_data.wind}} m/s</b></p>
+                        <p><i class="material-icons tiny">cloud_queue</i>&nbsp&nbsp<b style="font-size: 18;">{{weather_data.cloudiness}} %</b></p>
+                        <p><i class="material-icons tiny">visibility</i>&nbsp&nbsp<b style="font-size: 18;">{{weather_data.visibility}} km</b></p>
 
                         <div class="divider"></div>
 
                         
-                        <p>Sunrise:<b>{{weather_data.sunrise}} am</b></p>
-                        <p>Sunset:<b>{{weather_data.sunset}} pm</b></p>
-                        <p>Timezone:<b>{{weather_data.timezone}}</b></p>
+                        <p>Sunrise:&nbsp&nbsp<b>{{weather_data.sunrise}}&nbspUTC</b></p>
+                        <p>Sunset:&nbsp&nbsp<b>{{weather_data.sunset}}&nbspUTC</b></p>
+                        <p>Timezone:&nbsp&nbsp<b>{{weather_data.timezone}}&nbspUTC</b></p>
 
                     </div>
                   </div>
